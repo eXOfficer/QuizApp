@@ -10,6 +10,14 @@ import Foundation
 
 struct QuizBrain {
     let quiz = [
+        
+        Questions(text: "Which one is the top Varsity?", answer: ["MIT", "HARVARD", "BUET"], correctAns: "MIT"),
+        Questions(text: "Which one is Prime?", answer: ["07", "09", "12"], correctAns: "07"),
+        Questions(text: "Moon contains fresh Water?", answer: ["NO", "YES", "May be Not"], correctAns: "YES"),
+        Questions(text: "Which is for iOS?", answer: ["C++", "SWIFT", "Java"], correctAns: "SWIFT"),
+        
+    ]
+    /*let quiz = [
         Questions(text: "2 is a Prime Number", answer: "True"),
         Questions(text: "35 is a Prime Number", answer: "False"),
         Questions(text: "13 is a Prime Number", answer: "True"),
@@ -20,13 +28,13 @@ struct QuizBrain {
         Questions(text: "Time is Money, && Money Returns- most Precious Time", answer: "True"),
         Questions(text: "Sometimes, Cigar is good for releasing Mental pressure", answer: "True"),
         Questions(text: "its raining", answer: "True")
-    ]
+    ]*/
     //let size = quiz.count
     var quesNum = 0
     var score = 0
     
     mutating func checkAns (_ userAns: String) -> Bool {
-        if userAns == quiz[quesNum].answer {
+        if userAns == quiz[quesNum].correctAns {
             score += 1
             return true
         }
@@ -56,6 +64,17 @@ struct QuizBrain {
     
     func getScore() -> Int {
         return score
-        
+    }
+    
+    func showAnsOption1 () -> String{
+        return quiz[quesNum].answer[0]
+    }
+    
+    func showAnsOption2 () -> String{
+        return quiz[quesNum].answer[1]
+    }
+    
+    func showAnsOption3 () -> String{
+        return quiz[quesNum].answer[2]
     }
 }
